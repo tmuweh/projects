@@ -1,8 +1,9 @@
 
 import pygame
 
-from settings import Settings
 from ship import Ship
+from settings import Settings
+
 import game_functions as gf
 
 def run_game():
@@ -17,13 +18,14 @@ def run_game():
 	pygame.display.set_caption("Alien Invasion")
 
 	# Make a ship
-	ship = Ship(screen)
+	ship = Ship( ai_settings, screen)
 	
 
 	#start the main loop for the game
 	while True:
 
 		gf.check_events(ship)
+		ship.update()
 		gf.update_screen(ai_settings, screen, ship)
 
 		#make the Most recently drawn screen visible
